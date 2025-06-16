@@ -18,6 +18,9 @@ Monitorar VMs em tempo real, detectar anomalias, aplicar respostas automáticas 
 │   └── alerta_vm_excluida.json
 │   └── alerta_conectividade_perdida.json
 │   └── alerta_memoria_utilizacao.json
+│   └── alerta_acesso_nao_autorizado.json
+│   └── alerta_comandos_suspeitos.json
+│   └── alerta_modific_firewall.json
 ├── dashboards/               # Workbooks customizados para visualização
 │   └── workbook_monitoramento_vm.json
 ├── automation/               # Runbook do Azure Automation
@@ -146,6 +149,75 @@ Monitora o uso de memória na VM e dispara uma ação quando o uso ultrapassa 85
 }
 ```
 
+### Alerta de Tentativa de Acesso Não Autorizado
+
+Monitora tentativas de login mal-sucedidas na VM e dispara uma ação quando há mais de 5 tentativas falhas.
+
+**Arquivo:** `alerts/alerta_acesso_nao_autorizado.json`
+
+```jsonjson
+{
+  "name": "Alerta Acesso Não Autorizado",
+  "properties": {
+    "description": "Alerta disparado quando há múltiplas tentativas de login falhas",
+    "enabled": true,
+    "condition": {
+      "logName": "SecurityEvent",
+      "operationName": "FailedLogin",
+      "operator": "GreaterThan",
+      "threshold": 5
+    },
+    "actionGroup": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Insights/actionGroups/{actionGroupName}"
+  }
+}
+```
+
+### Alerta de Modificação de Firewall
+
+Monitora alterações inesperadas nas regras de firewall e dispara uma ação quando há uma modificação detectada.
+
+**Arquivo:** `alerts/alerta_modificacao_firewall.json`
+
+```jsonjson
+{
+  "name": "Alerta Modificação Firewall",
+  "properties": {
+    "description": "Alerta disparado quando há mudanças nas regras de firewall",
+    "enabled": true,
+    "condition": {
+      "logName": "Activity Log",
+      "operationName": "Microsoft.Network/networkSecurityGroups/write",
+      "operator": "Equals",
+      "threshold": 1
+    },
+    "actionGroup": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Insights/actionGroups/{actionGroupName}"
+  }
+}
+```
+
+### Alerta de Execução de Comandos Suspeitos
+
+Monitora a execução de comandos potencialmente maliciosos e dispara uma ação caso um comando suspeito seja identificado.
+
+**Arquivo:** `alerts/alerta_comandos_suspeitos.json`
+
+```jsonjson
+{
+  "name": "Alerta Comandos Suspeitos",
+  "properties": {
+    "description": "Alerta disparado quando comandos suspeitos são executados",
+    "enabled": true,
+    "condition": {
+      "logName": "Syslog",
+      "operationName": "CommandExecution",
+      "operator": "Contains",
+      "threshold": "wget, curl, nc"
+    },
+    "actionGroup": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Insights/actionGroups/{actionGroupName}"
+  }
+}
+```
+
 ### Workbook de Monitoramento
 
 Dashboard com gráficos de uso de CPU e memória das VMs conectadas ao Log Analytics.
@@ -204,11 +276,16 @@ Fluxo:
 
 ---
 
+## Conclusão
+Esses alertas ajudam a manter a segurança da sua máquina virtual, monitorando eventos críticos e permitindo uma resposta rápida.
+
 ## Referências
 
 - [Azure Monitor - Documentação](https://learn.microsoft.com/pt-br/azure/azure-monitor/)
 - [Azure Automation](https://learn.microsoft.com/pt-br/azure/automation/)
 - [VM Insights](https://learn.microsoft.com/pt-br/azure/azure-monitor/vm/vminsights-overview)
 - [Logic Apps](https://learn.microsoft.com/pt-br/azure/logic-apps/)
+- [Azure Monitor - Notificação via Teams](https://techcommunity.microsoft.com/blog/coreinfrastructureandsecurityblog/azure-monitor---alert-notification-via-teams/2507676)
+- [Notificações para um canal do Teams](https://learn.microsoft.com/pt-br/azure/data-factory/how-to-send-notifications-to-teams?tabs=data-factory)
 
 ---
