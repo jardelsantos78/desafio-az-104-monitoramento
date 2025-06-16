@@ -287,7 +287,6 @@ Esses alertas ajudam a manter a segurança da sua máquina virtual, monitorando 
 - [Logic Apps](https://learn.microsoft.com/pt-br/azure/logic-apps/)
 - [Azure Monitor - Notificação via Teams](https://techcommunity.microsoft.com/blog/coreinfrastructureandsecurityblog/azure-monitor---alert-notification-via-teams/2507676)
 - [Notificações para um canal do Teams](https://learn.microsoft.com/pt-br/azure/data-factory/how-to-send-notifications-to-teams?tabs=data-factory)
-- <a href="https://learn.microsoft.com/pt-br/azure/data-factory/how-to-send-notifications-to-teams?tabs=data-factory" target="_blank">Notificações para um canal do Teams</a>
 
 
 ---
