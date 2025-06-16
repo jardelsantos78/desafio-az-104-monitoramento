@@ -279,7 +279,7 @@ Fluxo:
 ## Conclusão
 Esses alertas ajudam a manter a segurança da sua máquina virtual, monitorando eventos críticos e permitindo uma resposta rápida.
 
-## Referências
+## Para saber mais, não deixe de consultar os links abaixo:
 
 - [Azure Monitor - Documentação](https://learn.microsoft.com/pt-br/azure/azure-monitor/)
 - [Azure Automation](https://learn.microsoft.com/pt-br/azure/automation/)
