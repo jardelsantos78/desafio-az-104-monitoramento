@@ -1,5 +1,5 @@
 {
-  "name": "AlertTeamsNotification",
+  "name": "Notifica Teams",
   "description": "Notifica via Teams sempre que um alerta de CPU for disparado.",
   "trigger": {
     "type": "Microsoft.Azure.Monitor.Alert",
