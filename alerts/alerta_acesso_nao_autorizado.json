@@ -1,0 +1,14 @@
+{
+  "name": "Alerta Acesso Não Autorizado",
+  "properties": {
+    "description": "Alerta disparado quando há múltiplas tentativas de login falhas",
+    "enabled": true,
+    "condition": {
+      "logName": "SecurityEvent",
+      "operationName": "FailedLogin",
+      "operator": "GreaterThan",
+      "threshold": 5
+    },
+    "actionGroup": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Insights/actionGroups/{actionGroupName}"
+  }
+}
