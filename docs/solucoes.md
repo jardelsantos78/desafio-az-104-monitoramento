@@ -32,7 +32,7 @@ Monitorar VMs em tempo real, detectar anomalias, aplicar respostas automáticas 
 
 ---
 
-## Componentes da Solução
+## Detalhando as soluções
 
 ### Alerta de CPU
 
@@ -59,7 +59,7 @@ Detecta quando a VM ultrapassa 90% de uso de CPU por mais de 10 minutos.
 
 ### Alerta Espaço em Disco
 
-Detecta quando o espaço disponível no disco da VM está abaixo de um limite crítico.
+Detecta quando o espaço disponível no disco da VM está abaixo de 10%.
 
 **Arquivo:** `alerts/alerta_espaco_disco.json`
 
@@ -263,7 +263,7 @@ Fluxo:
 ### 1. Importe os recursos no portal do Azure
 
 - [ ] **Baixe os arquivos deste Github**
-- [ ] **Importe os alertas**
+- [ ] **Importe os alertas aplicáveis ao seu ambiente**
 - [ ] **Importe o workbook:** `dashboards/workbook_monitoramento_vm.json`
 - [ ] **Crie um Runbook:** copie o conteúdo de `automation/reiniciar_processo_cpu_alta.ps1`
 - [ ] **Crie uma Logic App:** usando `logicapps/alerta_notificacao_teams.json`
