@@ -1,0 +1,16 @@
+{
+  "name": "VMDeletionAlert",
+  "description": "Alerta gerado quando uma VM for excluída no Azure",
+  "resourceType": "Microsoft.Resources/subscriptions/resourceGroups",
+  "signalType": "ActivityLog",
+  "condition": {
+    "operationName": "Microsoft.Compute/virtualMachines/delete",
+    "category": "Administrative",
+    "status": "Accepted"
+  },
+  "scope": "/subscriptions/{subscription-id}/resourceGroups/rg-monitoramento",
+  "severity": 0,
+  "actionGroup": [
+    "/subscriptions/{subscription-id}/resourceGroups/rg-monitoramento/providers/microsoft.insights/actionGroups/ag-vm-delete"
+  ]
+}
