@@ -1,0 +1,14 @@
+{
+  "name": "CPUHighUsage",
+  "description": "Uso de CPU acima de 90% por 10 minutos",
+  "resourceType": "Microsoft.Compute/virtualMachines",
+  "metricName": "Percentage CPU",
+  "operator": "GreaterThan",
+  "threshold": 90,
+  "timeAggregation": "Average",
+  "windowSize": "PT10M",
+  "evaluationFrequency": "PT5M",
+  "actionGroup": [
+    "/subscriptions/{subscription-id}/resourceGroups/rg-monitoramento/providers/microsoft.insights/actionGroups/ag-cpu-alert"
+  ]
+}
