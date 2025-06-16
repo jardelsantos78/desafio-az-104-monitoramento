@@ -1,0 +1,14 @@
+{
+  "name": "Alerta Modificação Firewall",
+  "properties": {
+    "description": "Alerta disparado quando há mudanças nas regras de firewall",
+    "enabled": true,
+    "condition": {
+      "logName": "Activity Log",
+      "operationName": "Microsoft.Network/networkSecurityGroups/write",
+      "operator": "Equals",
+      "threshold": 1
+    },
+    "actionGroup": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Insights/actionGroups/{actionGroupName}"
+  }
+}
