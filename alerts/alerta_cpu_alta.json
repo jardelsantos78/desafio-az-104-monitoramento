@@ -1,5 +1,5 @@
 {
-  "name": "CPUHighUsage",
+  "name": "Alto Uso de CPU",
   "description": "Uso de CPU acima de 90% por 10 minutos",
   "resourceType": "Microsoft.Compute/virtualMachines",
   "metricName": "Percentage CPU",
