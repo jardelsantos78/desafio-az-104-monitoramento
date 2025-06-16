@@ -1,0 +1,20 @@
+{
+  "title": "VM Monitoring Workbook",
+  "description": "Dashboard com metricas de CPU e memoria para VMs no Azure.",
+  "items": [
+    {
+      "type": "metricChart",
+      "resourceType": "Microsoft.Compute/virtualMachines",
+      "metric": "Percentage CPU",
+      "aggregation": "Average",
+      "timespan": "PT1H"
+    },
+    {
+      "type": "metricChart",
+      "resourceType": "Microsoft.Compute/virtualMachines",
+      "metric": "Available Memory Bytes",
+      "aggregation": "Average",
+      "timespan": "PT1H"
+    }
+  ]
+}
