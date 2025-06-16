@@ -1,5 +1,5 @@
 {
-  "title": "VM Monitoring Workbook",
+  "title": "Workbook de Monitoramento",
   "description": "Dashboard com metricas de CPU e memoria para VMs no Azure.",
   "items": [
     {
