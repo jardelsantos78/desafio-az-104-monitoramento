@@ -13,30 +13,33 @@ Monitorar VMs em tempo real, detectar anomalias, aplicar respostas automáticas 
 ```
 /
 ├── alerts/                    # Regras de alerta baseadas em métricas e eventos
-│   ├── cpu-alert.json
-│   └── vm-delete-alert.json
+│   ├── alerta_cpu_alta.json
+│   └── alerta_espaco_disco.json
+│   └── alerta_vm_excluida.json
+│   └── alerta_conectividade_perdida.json
+│   └── alerta_memoria_utilizacao.json
 ├── dashboards/               # Workbooks customizados para visualização
-│   └── vm-monitoring-workbook.json
+│   └── workbook_monitoramento_vm.json
 ├── automation/               # Runbook do Azure Automation
-│   └── RestartHighCPUProcess.ps1
+│   └── reiniciar_processo_cpu_alta.ps1
 ├── logicapps/                # Logic App para notificação via Microsoft Teams
-│   └── AlertTeamsNotification.json
-└── README.md                 # Documentação principal
+│   └── alerta_notificacao_teams.json
+└── README.md                 # Documento principal
 ```
 
 ---
 
 ## Componentes da Solução
 
-### Alerta de CPU Alta
+### Alerta de CPU
 
 Detecta quando a VM ultrapassa 90% de uso de CPU por mais de 10 minutos.
 
-**Arquivo:** `alerts/cpu-alert.json`
+**Arquivo:** `alerts/alerta_cpu_alta.json`
 
 ```jsonjson
 {
-  "name": "CPUHighUsage",
+  "name": "Alto Uso de CPU",
   "description": "Uso de CPU acima de 90% por 10 minutos",
   "resourceType": "Microsoft.Compute/virtualMachines",
   "metricName": "Percentage CPU",
@@ -51,15 +54,37 @@ Detecta quando a VM ultrapassa 90% de uso de CPU por mais de 10 minutos.
 }
 ```
 
+### Alerta Espaço em Disco
+
+Detecta quando o espaço disponível no disco da VM está abaixo de um limite crítico.
+
+**Arquivo:** `alerts/alerta_espaco_disco.json`
+
+```jsonjson
+{
+  "name": "Alerta Espaço em Disco",
+  "properties": {
+    "description": "Alerta disparado quando o espaço livre no disco é menor que 10%",
+    "enabled": true,
+    "condition": {
+      "metricName": "Disk Used Percentage",
+      "operator": "GreaterThan",
+      "threshold": 90
+    },
+    "actionGroup": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Insights/actionGroups/{actionGroupName}"
+  }
+}
+```
+
 ### Alerta de Exclusão de VM
 
 Monitora eventos administrativos no Activity Log e alerta se uma Máquina Virtual for excluída.
 
-**Arquivo:** `alerts/vm-delete-alert.json`
+**Arquivo:** `alerts/alerta_vm_excluida.json`
 
-```json
+```jsonjson
 {
-  "name": "VMDeletionAlert",
+  "name": "Alerta VM Excluída",
   "description": "Alerta gerado quando uma VM for excluída no Azure",
   "resourceType": "Microsoft.Resources/subscriptions/resourceGroups",
   "signalType": "ActivityLog",
@@ -76,11 +101,56 @@ Monitora eventos administrativos no Activity Log e alerta se uma Máquina Virtua
 }
 ```
 
+### Alerta de Falha na Conectividade
+
+Monitora a conectividade da VM e dispara uma ação caso a máquina fique inacessível.
+
+**Arquivo:** `alerts/alerta_conectividade_perdida.json`
+
+```jsonjson
+{
+  "name": "Alerta Conectividade",
+  "properties": {
+    "description": "Alerta disparado quando a VM perde conectividade",
+    "enabled": true,
+    "condition": {
+      "metricName": "Network Outage",
+      "operator": "Equals",
+      "threshold": 1
+    },
+    "actionGroup": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Insights/actionGroups/{actionGroupName}"
+  }
+}
+```
+
+
+### Alerta de Uso Elevado de Memória
+
+Monitora o uso de memória na VM e dispara uma ação quando o uso ultrapassa 85%.
+
+**Arquivo:** `alerts/alerta_memoria_utilizacao.json`
+
+```jsonjson
+{
+  "name": "Alerta Memória Alta",
+  "properties": {
+    "description": "Alerta disparado quando o uso de memória RAM ultrapassa 85%",
+    "enabled": true,
+    "condition": {
+      "metricName": "Available Memory Bytes",
+      "operator": "LessThan",
+      "threshold": 15
+    },
+    "actionGroup": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Insights/actionGroups/{actionGroupName}"
+  }
+}
+```
+
 ### Workbook de Monitoramento
 
 Dashboard com gráficos de uso de CPU e memória das VMs conectadas ao Log Analytics.
 
-**Arquivo:** `dashboards/vm-monitoring-workbook.json`
+**Arquivo:** `dashboards/workbook_monitoramento_vm.json`
 
 Contém dois gráficos principais:
 - CPU (%) por hora
@@ -90,7 +160,7 @@ Contém dois gráficos principais:
 
 Script que identifica e encerra o processo que consome mais CPU na VM.
 
-**Arquivo:** `automation/RestartHighCPUProcess.ps1`
+**Arquivo:** `automation/reiniciar_processo_cpu_alta.ps1`
 
 ```powershell
 param([string]$vmName, [string]$resourceGroupName)
@@ -108,7 +178,7 @@ Remove-AzVMRunCommandSession -Session $session
 
 Recebe alertas e envia mensagens automáticas para um canal do Microsoft Teams.
 
-**Arquivo:** `logicapps/AlertTeamsNotification.json`
+**Arquivo:** `logicapps/alerta_notificacao_teams.json`
 
 Fluxo:
 - Disparo via Azure Monitor Alert
@@ -120,10 +190,11 @@ Fluxo:
 
 ### 1. Importe os recursos no portal do Azure
 
-- [ ] **Importe o alerta:** `alerts/cpu-alert.json`
-- [ ] **Importe o workbook:** `dashboards/vm-monitoring-workbook.json`
-- [ ] **Crie um Runbook:** copie o conteúdo de `automation/RestartHighCPUProcess.ps1`
-- [ ] **Crie uma Logic App:** usando `logicapps/AlertTeamsNotification.json`
+- [ ] **Baixe os arquivos deste Github**
+- [ ] **Importe os alertas**
+- [ ] **Importe o workbook:** `dashboards/workbook_monitoramento_vm.json`
+- [ ] **Crie um Runbook:** copie o conteúdo de `automation/reiniciar_processo_cpu_alta.ps1`
+- [ ] **Crie uma Logic App:** usando `logicapps/alerta_notificacao_teams.json`
 
 ### 2. Configure permissões e conexões
 
