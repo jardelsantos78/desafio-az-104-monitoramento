@@ -1,0 +1,13 @@
+{
+  "name": "Alerta Espaço em Disco",
+  "properties": {
+    "description": "Alerta disparado quando o espaço livre no disco é menor que 10%",
+    "enabled": true,
+    "condition": {
+      "metricName": "Disk Used Percentage",
+      "operator": "GreaterThan",
+      "threshold": 90
+    },
+    "actionGroup": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Insights/actionGroups/{actionGroupName}"
+  }
+}
