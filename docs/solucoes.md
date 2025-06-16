@@ -112,7 +112,7 @@ Recebe alertas e envia mensagens automáticas para um canal do Microsoft Teams.
 
 Fluxo:
 - Disparo via Azure Monitor Alert
-- Ação: Envio de mensagem "⚠️ Alerta de CPU Alto! A VM {vmName} está com uso acima de 90%." para canal de TI
+- Ação: Envio de mensagem "Alerta de CPU Alto! A VM {vmName} está com uso acima de 90%." para canal de TI
 
 ---
 
