@@ -118,21 +118,14 @@ Fluxo:
 
 ## Como Usar
 
-### 1. Clone o repositório
-
-```bash
-git clone https://github.com/seu-usuario/azure-vm-monitoring.git
-cd azure-vm-monitoring
-```
-
-### 2. Importe os recursos no portal do Azure
+### 1. Importe os recursos no portal do Azure
 
 - [ ] **Importe o alerta:** `alerts/cpu-alert.json`
 - [ ] **Importe o workbook:** `dashboards/vm-monitoring-workbook.json`
 - [ ] **Crie um Runbook:** copie o conteúdo de `automation/RestartHighCPUProcess.ps1`
 - [ ] **Crie uma Logic App:** usando `logicapps/AlertTeamsNotification.json`
 
-### 3. Configure permissões e conexões
+### 2. Configure permissões e conexões
 
 - Adicione as VMs ao Log Analytics.
 - Dê permissão de contributor para Automation.
