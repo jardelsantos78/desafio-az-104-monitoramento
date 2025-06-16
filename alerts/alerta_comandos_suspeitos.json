@@ -1,0 +1,14 @@
+{
+  "name": "Alerta Comandos Suspeitos",
+  "properties": {
+    "description": "Alerta disparado quando comandos suspeitos são executados",
+    "enabled": true,
+    "condition": {
+      "logName": "Syslog",
+      "operationName": "CommandExecution",
+      "operator": "Contains",
+      "threshold": "wget, curl, nc"
+    },
+    "actionGroup": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Insights/actionGroups/{actionGroupName}"
+  }
+}
