@@ -164,4 +164,6 @@ Este guia demonstrou um processo para configurar o monitoramento de máquinas vi
 
 Caso necessite de ajuda adicional, consulte os guias oficiais no [Microsoft Learn](https://learn.microsoft.com/pt-br/azure/azure-monitor/) e vídeos tutoriais, que demonstram cada etapa com detalhes visuais para confirmar as configurações em tempo real.
 
-
+---
+Navegue pelo repositório
+([Soluções de Monitoramento](https://github.com/jardelsantos78/desafio-az-104-monitoramento/tree/main))
