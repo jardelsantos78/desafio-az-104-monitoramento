@@ -8,7 +8,8 @@
       "metric": "Percentage CPU",
       "aggregation": "Average",
       "timespan": "PT1H",
-      "unit": "Percent"
+      "unit": "Percent",
+      "label": "Uso de CPU (%)"
     },
     {
       "type": "metricChart",
@@ -16,7 +17,8 @@
       "metric": "Available Memory Bytes",
       "aggregation": "Average",
       "timespan": "PT1H",
-      "unit": "Bytes"
+      "unit": "Bytes",
+      "label": "Memória Disponível (Bytes)"
     },
     {
       "type": "metricChart",
@@ -24,7 +26,8 @@
       "metric": "Disk Read Bytes/sec",
       "aggregation": "Average",
       "timespan": "PT1H",
-      "unit": "Bytes/sec"
+      "unit": "Bytes/sec",
+      "label": "Leitura de Disco (Bytes/sec)"
     },
     {
       "type": "metricChart",
@@ -32,7 +35,8 @@
       "metric": "Network In Total",
       "aggregation": "Average",
       "timespan": "PT1H",
-      "unit": "Bytes"
+      "unit": "Bytes",
+      "label": "Tráfego de Entrada na Rede (Bytes)"
     }
   ]
 }
