@@ -150,11 +150,11 @@ Após realizar o teste, realizei as seguintes verificações:
 
 - **Consistência das Regiões**: Utilize uma mesma região para a VM e o Log Analytics Workspace sempre que possível para reduzir latência e custos de transferência de dados.
 - **Severidade dos Alertas**: Configure níveis de severidade de acordo com o impacto potencial do evento. Isso ajuda a priorizar a resposta da equipe.
-- **Consultas KQL**: Aproveite a linguagem Kusto Query Language para criar consultas personalizadas que possibilitam análises detalhadas e identificação de padrões nos logs.
+- **Consultas KQL**: Aproveite a linguagem Kusto Query Language para criar consultas personalizadas que possibilitam análises detalhadas e identificação de padrões nos logs. Para saber mais, [clique aqui](docs/KQL.md).
 - **Documentação de Alterações**: Sempre registre as configurações e alterações realizadas. O Activity Log pode ser essencial para auditoria e investigação de incidentes.
 - **Automatização de Respostas**: Considere utilizar ações automatizadas (como webhooks ou Azure Functions) para integrar os alertas a sistemas internos de gerenciamento de incidentes ou comunicação (Microsoft Teams, Slack, etc.).
 - **Testes Regulares**: Periodicamente, realize testes de alerta para garantir que toda a cadeia de monitoramento e notificação esteja funcionando de forma ideal.
-- **Revisão dos Grupos de Ação**: Mantenha atualizados os contatos dos responsáveis e ajuste os grupos de ação conforme a equipe evolui.
+- **Revisão dos Grupos de Ação**: Mantenha atualizados os contatos dos responsáveis e ajuste os grupos de ação conforme a equipe evolui. Para saber mais, [clique aqui](docs/grupos_de_acao.md).
 - **Monitoramento Inteligente de Máquinas Virtuais no Azure**: Para garantir um ambiente estável e seguro para suas máquinas virtuais no Microsoft Azure disponibilizei alguns arquivos JSON para servirem de **soluções completas** para acompanhar desempenho, segurança e o comportamento das VMs. O intuito é proporcionar uma **visibilidade detalhada das métricas essenciais** e **respostas automatizadas** para eventos críticos. Com o uso de **Azure Automation** e **Logic Apps**, é possível transformar o monitoramento reativo em uma abordagem proativa, permitindo que alertas sejam acionados dinamicamente e respostas automatizadas garantam a continuidade dos serviços. Para conhecer e explorar algumas soluções de monitoramento, acesse o arquivo [Soluções de monitoramento](docs/solucoes.md).
 
 ---
