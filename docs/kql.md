@@ -94,3 +94,4 @@ dependencies
 4. Por fim, integre KQL a **Workbooks** para criar dashboards interativos.
 
 ---
+[Voltar](./readme.md)
