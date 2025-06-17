@@ -1,6 +1,6 @@
-# Monitoramento Azure VM - Performance, Segurança e Automação
+# Soluções de Monitoramento - Performance, Segurança e Automação
 
-Este repositório fornece uma solução completa de monitoramento para Máquinas Virtuais no Microsoft Azure. Ele abrange alertas de desempenho, segurança, visualização de métricas e respostas automatizadas via Azure Automation e Logic Apps.
+Neste repositório trago algumas soluções para monitoramento de máquinas virtuais. Dentre as soluções, temos: alertas de desempenho, segurança, visualização de métricas e respostas automatizadas via Azure Automation e Logic Apps.
 
 ## Objetivo
 
