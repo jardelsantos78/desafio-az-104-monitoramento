@@ -1,34 +1,10 @@
 # Soluções de Monitoramento - Performance, Segurança e Automação
 
-Neste repositório trago algumas soluções para monitoramento de máquinas virtuais. Dentre as soluções, temos: alertas de desempenho, segurança, visualização de métricas e respostas automatizadas via Azure Automation e Logic Apps.
+Neste documento, apresento algumas abordagens para melhorar o monitoramento das máquinas virtuais garantindo mais eficiência e segurança. Aqui, você encontrará soluções como *alertas de desempenho e segurança, visualização detalhada de métricas e respostas automatizadas* utilizando Azure Automation e Logic Apps.
 
 ## Objetivo
 
 Monitorar VMs em tempo real, detectar anomalias, aplicar respostas automáticas e notificar equipes técnicas de forma eficiente.
-
----
-
-## Estrutura do Repositório
-
-```
-/
-├── alerts/                    # Regras de alerta baseadas em métricas e eventos
-│   ├── alerta_cpu_alta.json
-│   └── alerta_espaco_disco.json
-│   └── alerta_vm_excluida.json
-│   └── alerta_conectividade_perdida.json
-│   └── alerta_memoria_utilizacao.json
-│   └── alerta_acesso_nao_autorizado.json
-│   └── alerta_comandos_suspeitos.json
-│   └── alerta_modific_firewall.json
-├── dashboards/               # Workbooks customizados para visualização
-│   └── workbook_monitoramento_vm.json
-├── automation/               # Runbook do Azure Automation
-│   └── reiniciar_processo_cpu_alta.ps1
-├── logicapps/                # Logic App para notificação via Microsoft Teams
-│   └── alerta_notificacao_teams.json
-└── README.md                 # Documento principal
-```
 
 ---
 
