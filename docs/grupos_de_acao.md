@@ -130,4 +130,4 @@ Quando qualquer uma das condições acima for atendida:
 **Explore a integração com Azure Automation** para respostas automáticas eficazes.
 
 ---
-
+([Voltar para o README](https://github.com/jardelsantos78/desafio-az-104-monitoramento/tree/main))
