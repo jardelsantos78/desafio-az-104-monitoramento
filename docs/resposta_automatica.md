@@ -65,3 +65,4 @@ Com isso, quando a CPU da VM ultrapassar **90% de uso por 20 minutos**, o **Azur
 **Para evitar ultrapassar o limite gratuito de 500 minutos/mês**, recomendo criar um alerta para monitorar o uso da conta de automação.
 
 ---
+([Voltar para o README](https://github.com/jardelsantos78/desafio-az-104-monitoramento/tree/main))
