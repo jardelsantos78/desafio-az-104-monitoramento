@@ -149,7 +149,7 @@ Após realizar o teste, realizei as seguintes verificações:
 
 - **Consistência das Regiões**: Utilize uma mesma região para a VM e o Log Analytics Workspace sempre que possível para reduzir latência e custos de transferência de dados.
 - **Severidade dos Alertas**: Configure níveis de severidade de acordo com o impacto potencial do evento. Isso ajuda a priorizar a resposta da equipe.
-- **Consultas KQL**: Aproveite a linguagem Kusto Query Language para criar consultas personalizadas que possibilitam análises detalhadas e identificação de padrões nos logs. Para saber mais, [clique aqui](docs/KQL.md).
+- **Consultas KQL**: Aproveite a linguagem Kusto Query Language para criar consultas personalizadas que possibilitam análises detalhadas e identificação de padrões nos logs. Para saber mais, [clique aqui](docs/kql.md).
 - **Documentação de Alterações**: Sempre registre as configurações e alterações realizadas. O Activity Log pode ser essencial para auditoria e investigação de incidentes.
 - **Automatização de Respostas**: Considere utilizar ações automatizadas (como webhooks ou Azure Functions) para integrar os alertas a sistemas internos de gerenciamento de incidentes ou comunicação (Microsoft Teams, Slack, etc.).
 - **Testes Regulares**: Periodicamente, realize testes de alerta para garantir que toda a cadeia de monitoramento e notificação esteja funcionando de forma ideal.
