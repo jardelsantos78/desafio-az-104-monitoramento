@@ -166,4 +166,4 @@ Caso necessite de ajuda adicional, consulte os guias oficiais no [Microsoft Lear
 
 ---
 Navegue pelo repositório
-([Soluções de Monitoramento](https://github.com/jardelsantos78/desafio-az-104-monitoramento/tree/main))
+([Soluções de Monitoramento](docs/solucoes.md)) | [Linguagem KQL](docs/kql.md) | [Grupos de Ação](docs/grupos_de_acao.md) | [Respostas Automáticas](docs/resposta_automatica.md)
