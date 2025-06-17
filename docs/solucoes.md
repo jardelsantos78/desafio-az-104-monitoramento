@@ -194,7 +194,7 @@ Monitora a execução de comandos potencialmente maliciosos e dispara uma ação
 }
 ```
 
-### Workbook de Monitoramento
+### Dashboard de Monitoramento
 
 Dashboard com gráficos de uso de CPU e memória das VMs conectadas ao Log Analytics.
 
