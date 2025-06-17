@@ -1,8 +1,6 @@
 # Respostas Automáticas no Azure
 
-## Cenário
-
-Os passos descritos a seguir demonstram como configurar um **Runbook no Azure Automation** para responder automaticamente a alertas do **Azure Monitor**. Neste exemplo, a ação será **reiniciar uma máquina virtual** quando o uso de CPU ultrapassar **90% por 20 minutos**.
+Neste documento, você verá como configurar um **Runbook no Azure Automation**, integrar com alertas do Azure Monitor e criar respostas automatizadas para eventos críticos. Para exemplo, vamos detalhar como executar a ação **reiniciar uma máquina virtual** quando o uso de CPU ultrapassar **90% por 20 minutos**.
 
 ---
 
@@ -40,14 +38,31 @@ param (
     [string]$ResourceGroup
 )
 
-# Autenticação no Azure
-Connect-AzAccount -Identity
+# Validar parâmetros
+if (-not $VMName -or -not $ResourceGroup) {
+    Write-Error "Os parâmetros VMName e ResourceGroup são obrigatórios."
+    exit 1
+}
 
-# Reiniciar a VM
-Restart-AzVM -ResourceGroupName $ResourceGroup -Name $VMName
+try {
+    # Autenticação no Azure
+    Write-Output "Autenticando no Azure..."
+    Connect-AzAccount -Identity
 
-Write-Output "A VM $VMName foi reiniciada devido ao alto uso de CPU."
+    # Verificar se a VM existe antes de tentar reiniciá-la
+    $vm = Get-AzVM -ResourceGroupName $ResourceGroup -Name $VMName -ErrorAction SilentlyContinue
+    if ($vm) {
+        Write-Output "Reiniciando a VM $VMName..."
+        Restart-AzVM -ResourceGroupName $ResourceGroup -Name $VMName
+        Write-Output "A VM $VMName foi reiniciada com sucesso devido ao alto uso de CPU."
+    } else {
+        Write-Error "A VM $VMName não foi encontrada no grupo de recursos $ResourceGroup."
+    }
+} catch {
+    Write-Error "Ocorreu um erro: $_"
+}
 ```
+> Os parâmetros **$VMName e $ResourceGroup** devem ser fornecidos pelo Azure Monitor, que dispara o Runbook automaticamente ao ocorrer um alerta. No momento da configuração da ação no Grupo de Ação do Azure, você deve passar esses parâmetros para o Runbook, garantindo que a VM correta seja identificada e reiniciada.
 
 ### **Publique e teste o Runbook**
 1. Clique em **Publicar** para ativar o Runbook.
