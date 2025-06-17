@@ -1,21 +1,20 @@
 # Monitoramento Eficaz de Máquinas Virtuais no Azure
 
-Neste repositório, compartilho minha experiência prática na implementação e administração do monitoramento de recursos no Microsoft Azure, com ênfase nas Máquinas Virtuais (VMs). O objetivo deste projeto é demonstrar como obter uma visão completa do ambiente, mantendo o controle e a capacidade de responder de forma ágil a eventos críticos – como a exclusão inesperada de uma VM – que podem impactar a operação na nuvem.
+Bem-vindo a este repositório, onde compartilho minha jornada na implementação e administração do monitoramento de Máquinas Virtuais (VMs) no Azure. Se você já se perguntou como ter uma visão completa do seu ambiente na nuvem e reagir rapidamente a eventos inesperados, como a exclusão acidental de uma VM, você está no lugar certo!  
 
-Além disso, este material reúne anotações e dicas práticas sobre as ferramentas e os serviços de monitoramento do Azure, com o intuito de auxiliar outros profissionais que, assim como eu, buscam um aprendizado contínuo e aprimoramento de suas habilidades na administração de ambientes em nuvem.
+Ao longo deste projeto, apliquei tudo o que aprendi no bootcamp AZ-104 da DIO.me, reunindo exemplos práticos, anotações e dicas essenciais sobre as ferramentas e serviços de monitoramento do Azure. A ideia aqui é simplificar o aprendizado e ajudar outros profissionais que, assim como eu, estão sempre buscando evoluir na administração de ambientes em nuvem.  
 
-A seguir, apresento um guia prático e detalhado para configurar e gerenciar o monitoramento de máquinas virtuais, garantindo total visibilidade sobre os recursos e possibilitando a identificação e resposta proativa a eventos críticos, como o alto uso de CPU, por exemplo.
+Este guia prático vai te mostrar como configurar e gerenciar o monitoramento de VMs, garantindo total visibilidade dos recursos e possibilitando respostas rápidas a eventos críticos, como picos de uso de CPU. Ainda há muito a melhorar, mas a proposta é ir ajustando e evoluindo juntos—afinal, nada supera o aprendizado na prática!  
 
 ---
 
 ## Introdução
 
-No universo da computação em nuvem, a forma como monitoramos nossos recursos pode definir o sucesso na resposta a incidentes e na manutenção da continuidade dos negócios. Ao iniciar este projeto, meu objetivo era consolidar uma solução que integrasse monitoramento de performance, detecção de ameaças, visualização inteligente e automação de respostas para as Máquinas Virtuais no Azure.
+Quando se trata de computação em nuvem, manter o controle dos recursos faz toda a diferença para garantir estabilidade e resposta rápida aos incidentes. Neste projeto, meu objetivo foi criar uma abordagem completa para o monitoramento de máquinas virtuais no Azure saindo da zona de conforto trazendo uma solução que une performance, segurança, visualização inteligente e automação de respostas.
 
-A ideia é sair do modo reativo e adotar uma postura preventiva e inteligente, garantindo que nossa infraestrutura permaneça ágil, segura e resiliente. Este projeto abrange a configuração de alertas de desempenho e segurança, a visualização detalhada de métricas e a implementação de respostas automatizadas utilizando o Azure Automation e Logic Apps.
+A ideia aqui é abandonar o tradicional modo reativo e adotar uma postura mais estratégia e preventiva, garantindo uma infraestrutura ágil, segura e resiliente. Para tal, vamos explorar a configuração de alertas de desempenho e segurança, métricas e implementar respostas automatizadas com Azure Automation e Logic Apps.
 
-Embora eu reconheça que ainda há muito para aprender e aperfeiçoar, compartilho minha experiência com a intenção de ajudar outros profissionais a evoluírem. Juntos, podemos transformar o monitoramento tradicional em um mecanismo dinâmico de prevenção de incidentes e de melhoria contínua da infraestrutura em nuvem.
-
+Ainda há muito a aprender e aprimorar, mas quero compartilhar essa experiência para que mais profissionais possam evoluir junto comigo. Juntos, podemos transformar o monitoramento de nuvem em um mecanismo poderoso de prevenção e melhoria contínua.
 
 ---
 
@@ -33,11 +32,11 @@ Antes de seguir com a implementação, verifique se você possui os seguintes it
 
 ### Criação do Log Analytics Workspace: Passo a Passo Detalhado
 
-Para facilitar a compreensão e garantir uma implantação sem dúvidas, siga os passos abaixo e consulte as referências visuais fornecidas nos recursos oficiais.
+Para facilitar a compreensão e garantir uma implantação sem dúvidas, siga os passos abaixo e consulte as referências fornecidas no site oficial da [Microsoft](https://azure.microsoft.com/pt-br/pricing/purchase-options/azure-account).
 
 1. **Acesse o Portal do Azure**  
-   Faça login no [Portal do Azure](https://portal.azure.com) com suas credenciais.  
-   _Observação:_ Na tela de entrada, você verá seu dashboard inicial com diversos serviços.
+   - Faça login no [Portal do Azure](https://portal.azure.com) com suas credenciais.  
+   > *Observação:* Na tela de entrada, você verá seu dashboard inicial com diversos serviços.
 
 2. **Localize o Log Analytics Workspaces**  
    - Utilize a barra de pesquisa no topo do portal e digite **"Log Analytics Workspaces"**.  
