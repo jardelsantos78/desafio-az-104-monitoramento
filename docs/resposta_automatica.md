@@ -1,3 +1,5 @@
+# Respostas Automáticas no Azure
+
 ## Cenário
 
 Os passos descritos a seguir demonstram como configurar um **Runbook no Azure Automation** para responder automaticamente a alertas do **Azure Monitor**. Neste exemplo, a ação será **reiniciar uma máquina virtual** quando o uso de CPU ultrapassar **90% por 20 minutos**.
