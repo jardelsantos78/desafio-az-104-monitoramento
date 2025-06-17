@@ -94,4 +94,5 @@ dependencies
 4. Por fim, integre KQL a **Workbooks** para criar dashboards interativos.
 
 ---
-[Voltar](./readme.md)
+([Voltar para o README](https://github.com/jardelsantos78/desafio-az-104-monitoramento/tree/main)
+)
