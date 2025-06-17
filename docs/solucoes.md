@@ -254,6 +254,8 @@ try {
 }
 ```
 
+>Os parâmetros **$VMName e $ResourceGroup** devem ser fornecidos pelo Azure Monitor, que dispara o Runbook automaticamente ao ocorrer um alerta. No momento da configuração da ação no Grupo de Ação do Azure, você deve passar esses parâmetros garantindo que o Runbook os receba e execute comandos dentro da VM para identificar e encerrar o processo de maior uso de CPU.
+
 ### Logic App: Notificação via Teams
 
 Recebe alertas e envia mensagens automáticas para um canal do Microsoft Teams.
