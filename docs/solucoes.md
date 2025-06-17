@@ -200,13 +200,56 @@ Dashboard com gráficos de uso de CPU e memória das VMs conectadas ao Log Analy
 
 **Arquivo:** `dashboards/workbook_monitoramento_vm.json`
 
-Contém dois gráficos principais:
-- CPU (%) por hora
-- Memória disponível (bytes)
+```jsonjson
+{
+  "title": "Dashboard de Monitoramento de VMs no Azure",
+  "description": "Monitoramento detalhado de desempenho e uso de recursos das Máquinas Virtuais (VMs) no Azure.",
+  "items": [
+    {
+      "type": "metricChart",
+      "resourceType": "Microsoft.Compute/virtualMachines",
+      "metric": "Percentage CPU",
+      "aggregation": "Average",
+      "timespan": "PT1H",
+      "unit": "Percent"
+    },
+    {
+      "type": "metricChart",
+      "resourceType": "Microsoft.Compute/virtualMachines",
+      "metric": "Available Memory Bytes",
+      "aggregation": "Average",
+      "timespan": "PT1H",
+      "unit": "Bytes"
+    },
+    {
+      "type": "metricChart",
+      "resourceType": "Microsoft.Compute/virtualMachines",
+      "metric": "Disk Read Bytes/sec",
+      "aggregation": "Average",
+      "timespan": "PT1H",
+      "unit": "Bytes/sec"
+    },
+    {
+      "type": "metricChart",
+      "resourceType": "Microsoft.Compute/virtualMachines",
+      "metric": "Network In Total",
+      "aggregation": "Average",
+      "timespan": "PT1H",
+      "unit": "Bytes"
+    }
+  ]
+}
+```
 
-### Azure Automation: Reinício de Processo
+Esse código disponibiliza os seguintes gráficos:
+- Percentual de uso da CPU da VM.
+- Quantidade de memória disponível na VM em bytes.
+- Quantidade de dados lidos do disco por segundo.
+- Volume total de tráfego de entrada na rede da VM.
 
-Script que identifica e encerra o processo que consome mais CPU na VM.
+### Azure Automation: Reinicialização de processos na VM
+
+Script que identifica e encerra o processo que está consomindo mais CPU na VM.
 
 **Arquivo:** `automation/reiniciar_processo_cpu_alta.ps1`
 
