@@ -212,6 +212,7 @@ Dashboard com gráficos de uso de CPU e memória das VMs conectadas ao Log Analy
       "aggregation": "Average",
       "timespan": "PT1H",
       "unit": "Percent"
+      "Label": "Uso de CPU (%)"
     },
     {
       "type": "metricChart",
@@ -220,6 +221,7 @@ Dashboard com gráficos de uso de CPU e memória das VMs conectadas ao Log Analy
       "aggregation": "Average",
       "timespan": "PT1H",
       "unit": "Bytes"
+      "Label": "Memória Disponível (Bytes)"
     },
     {
       "type": "metricChart",
@@ -228,6 +230,7 @@ Dashboard com gráficos de uso de CPU e memória das VMs conectadas ao Log Analy
       "aggregation": "Average",
       "timespan": "PT1H",
       "unit": "Bytes/sec"
+      "label": "Leitura de Disco (Bytes/sec)"
     },
     {
       "type": "metricChart",
@@ -236,6 +239,7 @@ Dashboard com gráficos de uso de CPU e memória das VMs conectadas ao Log Analy
       "aggregation": "Average",
       "timespan": "PT1H",
       "unit": "Bytes"
+      "label": "Tráfego de Entrada na Rede (Bytes)"
     }
   ]
 }
